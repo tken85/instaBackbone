@@ -1,0 +1,26 @@
+{
+  "name": "instabackbone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "jquery": "^2.1.4",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "node-sass": "^3.4.2",
+    "serve": "^1.4.0",
+    "watchify": "^3.6.1"
+  },
+  "scripts": {
+    "start": "npm run watch & npm run serve",
+    "bundle": "./node_modules/.bin/browserify main.js -o bundle.js",
+    "watch": "./node_modules/.bin/watchify main.js -o bundle.js  & ./node_modules/.bin/node-sass sassy.scss styles.css -w",
+    "serve": "./node_modules/.bin/serve",
+    "sass": "./node_modules/.bin/node-sass styles.scss styles.css"
+  },
+  "author": "",
+  "license": "ISC"
+}
