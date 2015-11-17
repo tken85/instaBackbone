@@ -5,7 +5,7 @@ var Backbone = require('backbone');
 var ItemModel = require('./itemModel');
 
 module.exports = Backbone.Collection.extend({
-  url:"http://tiny-tiny.herokuapp.com/collections/instaTerry",
+  url:"http://tiny-tiny.herokuapp.com/collections/instaTerryBam",
   model: ItemModel,
 
 });
@@ -15,10 +15,11 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
-  urlRoot: "http://tiny-tiny.herokuapp.com/collections/instaTerry",
+  urlRoot: "http://tiny-tiny.herokuapp.com/collections/instaTerryBam",
   idAttribute: '_id',
   defaults:{
     pic_URL:"https://farm4.staticflickr.com/3539/3335570914_28078cf456.jpg",
+    bam_URL:"images/bam.png",
     text: "whoa that's awesome!",
     likes: 0,
   },
@@ -52,7 +53,9 @@ var instaPage ={
       event.preventDefault();
       var pic = $('input[name="pic"]').val();
       var words = $('input[name="wordage"]').val();
-      var newInsta = new ItemModel({pic_URL: pic, text: words});
+      var random = Math.floor(Math.random()*6);
+      var bamPic = "images/"+instaPage.bams[random];
+      var newInsta = new ItemModel({pic_URL: pic, bam_URL: bamPic, text: words});
       newInsta.save();
       instaPage.itemCollection.unshift(newInsta);
       console.log(instaPage.itemCollection);
@@ -76,10 +79,11 @@ var instaPage ={
   loadAgain: function(){
     $('section').html('');
     _.each(instaPage.itemCollection.models, function(currVal,idx,arr){
-      $('section').append('<article data-index="'+currVal.get('_id')+'"><img src="'+ currVal.get('pic_URL')+'"><p>'+currVal.get('text')+'</p><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like</button><span class="likes">'+currVal.get('likes')+'</span></article>');
+      $('section').append('<article data-index="'+currVal.get('_id')+'"><div class="row bamHolder"><div class="col-md-12"><img src="'+ currVal.get('pic_URL')+'"><img src="'+ currVal.get('bam_URL')+'"  class="bam"></div></div><p>'+currVal.get('text')+'</p><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like</button><span class="likes">'+currVal.get('likes')+'</span></article>');
     });
   },
   itemCollection:"",
+  bams : ["bam.png", "bam1.png", "bam2.png", "bam3.png", "bam4.png", "bam5.png"],
 };
 
 },{"./itemCollection":1,"./itemModel":2,"jquery":5,"underscore":6}],4:[function(require,module,exports){

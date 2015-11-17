@@ -25,7 +25,8 @@ article {
     text-align: center; }
   article p {
     font-size: 14px;
-    font-weight: lighter; }
+    font-weight: lighter;
+    padding-left: 15px; }
 
 h3 {
   margin: 10px 0; }
@@ -33,6 +34,28 @@ h3 {
 #emeril {
   border-radius: 100%; }
 
+button {
+  margin-left: 15px; }
+
 .likes {
   margin-left: 5px;
   color: red; }
+
+aside {
+  position: fixed; }
+
+.bamHolder {
+  position: relative;
+  width: 100%; }
+
+.bam {
+  width: 50%;
+  position: absolute;
+  z-index: 3;
+  display: inline;
+  top: 25%;
+  left: 25%; }
+
+.row {
+  margin-left: 0;
+  margin-right: 0; }
