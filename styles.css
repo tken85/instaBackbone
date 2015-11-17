@@ -1,19 +1,38 @@
+body {
+  font-family: 'Sigmar One', cursive; }
+
 header {
   text-align: center;
   background-color: green;
   padding-top: 10px;
   min-height: 100px;
-  font-family: 'Lobster', cursive; }
+  color: white; }
+  header img {
+    width: 100px;
+    border-radius: 100%; }
 
 div {
   vertical-align: top; }
 
-section {
-  text-align: center; }
+article {
+  width: 80%;
+  margin: 10px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2px; }
+  article img {
+    width: 100%;
+    text-align: center; }
+  article p {
+    font-size: 14px;
+    font-weight: lighter; }
 
 h3 {
-  margin: 0;
-  font-family: 'Lobster', cursive; }
+  margin: 10px 0; }
 
-img {
-  width: 200px; }
+#emeril {
+  border-radius: 100%; }
+
+.likes {
+  margin-left: 5px;
+  color: red; }
